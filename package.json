@@ -1,0 +1,41 @@
+{
+  "name": "bam_zc",
+  "version": "1.5.20",
+  "description": "'browserift plus to solving modular development'",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "bin": {
+    "bzc":"./bin/cmd.js"
+  },
+  "dependencies": {
+    "browserify": "^11.2.0",
+    "colors": "^1.1.2",
+    "iconv-lite": "^0.4.13",
+    "uglify-js": "^2.4.24",
+    "watch": "^0.16.0",
+    "cross-spawn" : "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bamzc/bam_zc.git"
+  },
+  "keywords": [
+    "browserify",
+    "uglifyjs",
+    "plus",
+    "watch",
+    "iconv-lite"
+  ],
+  "author": "edifier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bamzc/bam_zc/issues"
+  },
+  "homepage": "https://github.com/Bamzc/bam_zc#readme"
+}
