@@ -1,13 +1,13 @@
 {
   "name": "bam_zc",
-  "version": "1.5.20",
+  "version": "1.6.21",
   "description": "'browserift plus to solving modular development'",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "bin": {
-    "bzc":"./bin/cmd.js"
+    "bam_zc":"./bin/cmd.js"
   },
   "dependencies": {
     "browserify": "^11.2.0",
