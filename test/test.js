@@ -19,6 +19,16 @@ var config = {
         //是否压缩
         compress: true
     },
+    outputScss: {
+        //输出banner
+        banner:'/*build at <%time%>*/\n',
+        //输出文件路径
+        path: './css/',
+        //输出方式: normal、deep
+        type: 'normal',
+        //是否压缩
+        compress: true
+    },
     //引用的库文件路径
     libraryPath: './core/',
     watch: {

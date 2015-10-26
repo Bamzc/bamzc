@@ -1,16 +1,23 @@
-# browserify-plus
+# browserify-plus,sass-plus
 
 ## Installation	
 
-	npm install browserify-plus
+	npm install bam_zc
 
 ## Explain
 	
-	查找指定目录下得所有使用commonJS规范编写的js文件(*/rjs/*.js || */*_rjs.js)
+	1) 查找指定目录下得所有使用commonJS规范编写的js文件(*/rjs/*.js || */*_rjs.js)
 	
 	进行browserify编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)
 
-	在*/browserify-plus/执行:npm test，*/browserify-plus/js/文件内查看编译后的代码
+	在*/bam_zc/执行:npm test，*/bam_zc/js/文件内查看编译后的代码
+
+	2) 查找指定目录下得所有使用sass规范编写的scss文件(*/scss/*.scss)
+
+	进行sass编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)
+
+	在*/bam_zc/执行:npm test，*/bam_zc/css/文件内查看编译后的代码
+
 
 ## Options
  		
@@ -54,6 +61,16 @@
             //是否压缩
             compress: true
         },
+	    outputScss: {
+	        //输出banner
+	        banner:'/*build at <%time%>*/\n',
+	        //输出文件路径
+	        path: './css/',
+	        //输出方式: normal、deep
+	        type: 'normal',
+	        //是否压缩
+	        compress: true
+	    },
         //引用的库文件路径
         libraryPath: './core/',
         watch: {
@@ -78,7 +95,7 @@
 
 ## License
 
-	(The MIT License) Copyright (c) 2012 - 2015 edifier
+	(The MIT License) Copyright (c) 2012 - 2015 Bamzc
 	
 	
 
