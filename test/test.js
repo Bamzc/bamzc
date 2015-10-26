@@ -1,10 +1,10 @@
 /**
- * Created by wangxin8 on 2015/10/8.
+ * Created by bamzc on 2015/10/26.
  * 测试文件，终端：npm test
  */
 
 'use strict';
-var browserifyPlus = require('../index.js');
+var bamzc = require('../index.js');
 
 var config = {
     //需要编译的文件夹
@@ -37,6 +37,6 @@ var config = {
     }
 };
 
-browserifyPlus(config);
+bamzc(config);
 
 

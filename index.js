@@ -1,9 +1,9 @@
 /**
- * Created by wangxin on 15/10/3.
+ * Created by bamzc on 15/10/26.
  */
 
 'use strict';
-var browserifyPlus = require('./lib/main.js');
+var bamzc = require('./lib/main.js');
 
 function extendDeep(parent) {
     var i,
@@ -36,9 +36,17 @@ module.exports = function () {
             //是否压缩
             compress: true
         },
+        outputScss: {
+            //输出文件路径
+            path: '',
+            //输出方式: normal、deep
+            type: '',
+            //是否压缩
+            compress: true
+        },
         //引用的库文件路径
         libraryPath: './core/'
     });
 
-    browserifyPlus(config);
+    bamzc(config);
 };
