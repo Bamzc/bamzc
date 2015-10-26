@@ -2,7 +2,7 @@
 
 ## Installation	
 
-	npm install bam_zc
+	npm install bamzc
 
 ## Explain
 	
@@ -10,13 +10,13 @@
 	
 	进行browserify编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)
 
-	在*/bam_zc/执行:npm test，*/bam_zc/js/文件内查看编译后的代码
+	在*/bamzc/执行:npm test，*/bamzc/js/文件内查看编译后的代码
 
 	2) 查找指定目录下得所有使用sass规范编写的scss文件(*/scss/*.scss)
 
 	进行sass编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)
 
-	在*/bam_zc/执行:npm test，*/bam_zc/css/文件内查看编译后的代码
+	在*/bamzc/执行:npm test，*/bamzc/css/文件内查看编译后的代码
 
 
 ## Options

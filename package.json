@@ -1,13 +1,13 @@
 {
-  "name": "bam_zc",
-  "version": "1.6.21",
+  "name": "bamzc",
+  "version": "1.6.22",
   "description": "'browserift plus to solving modular development'",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "bin": {
-    "bam_zc":"./bin/cmd.js"
+    "bamzc":"./bin/cmd.js"
   },
   "dependencies": {
     "browserify": "^11.2.0",
@@ -28,6 +28,9 @@
   "keywords": [
     "browserify",
     "uglifyjs",
+    "sass",
+    "scss",
+    "css",
     "plus",
     "watch",
     "iconv-lite"
