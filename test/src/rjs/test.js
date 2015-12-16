@@ -3,9 +3,8 @@
  */
 
 // 这是一段中文测试
-var clear = require('<%bsp:clear%>');
-var PATH = require('path');
-
-
-console.log(clear([1,null,'']));
-console.log(PATH);
+/**
+ * Created by bamzc on 15/12/16.
+ */
+console.log("rjs文件测试")
+sss

@@ -1,13 +1,8 @@
-/**
- * Created by bamzc on 2015/10/26.
- * 测试文件，终端：npm test
- */
-
 'use strict';
-var bamzc = require('../index.js');
-var config = {
+
+module.exports = {
     //需要编译的文件夹
-    inputPath: './test/src',
+    inputPath: './src',
     js: {
         options: {
             //输出banner
@@ -17,19 +12,19 @@ var config = {
             //输出方式: normal、deep
             type: 'normal',
             //是否压缩
-            compress: false
+            compress: true
         }
     },
     rjs: {
         options: {
             //输出banner
             banner: '/*build at <%time%>*/\n',
-            //输出文件路径
-            dest : 'js/',
             //输出方式: normal、deep
             type: 'normal',
+            //输出文件路径
+            dest : 'js/',
             //是否压缩
-            compress: false
+            compress: true
         },
         //引用的库文件路径
         libraryPath: './src/core'
@@ -42,16 +37,16 @@ var config = {
             dest: 'css/',
             type: 'normal',
             //是否压缩
-            compress: false
+            compress: true
         }
     },
-    image: {
-        options: {
-            //输出文件路径
-            dest: 'i/'
-        },
-        patterns: ['.png', '.jpg', '.gif']
-    },
+    // image: {
+    //     options: {
+    //         //输出文件路径
+    //         dest: 'i/'
+    //     },
+    //     patterns: ['.png', '.jpg', '.gif']
+    // },
     sass: {
         options:{
             dest : 'css/',
@@ -65,4 +60,3 @@ var config = {
     }
     //watch:false
 };
-bamzc(config)

@@ -1,0 +1,167 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bamzc',
+1 verbose cli   '-g' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose install initial load of C:\Users\Administrator\AppData\Roaming\npm\package.json
+5 verbose readDependencies loading dependencies from C:\Users\Administrator\AppData\Roaming\npm\package.json
+6 silly cache add args [ 'bamzc', null ]
+7 verbose cache add spec bamzc
+8 silly cache add parsed spec { raw: 'bamzc',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'bamzc',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed bamzc@*
+10 verbose addNamed "*" is a valid semver range for bamzc
+11 silly addNameRange { name: 'bamzc', range: '*', hasData: false }
+12 silly mapToRegistry name bamzc
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry http://registry.npmjs.org/
+15 silly mapToRegistry uri http://registry.npmjs.org/bamzc
+16 verbose addNameRange registry:http://registry.npmjs.org/bamzc not in flight; fetching
+17 verbose request uri http://registry.npmjs.org/bamzc
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 18:26:58
+20 verbose request using bearer token for auth
+21 verbose request id f532d8350aed4799
+22 http request GET http://registry.npmjs.org/bamzc
+23 http 200 http://registry.npmjs.org/bamzc
+24 silly get cb [ 200,
+24 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 silly get     etag: '"A9AG5NT0H7GTGQ38V02YRYNUH"',
+24 silly get     'content-type': 'application/json',
+24 silly get     'cache-control': 'max-age=300',
+24 silly get     'content-length': '15575',
+24 silly get     'accept-ranges': 'bytes',
+24 silly get     date: 'Wed, 16 Dec 2015 10:27:32 GMT',
+24 silly get     via: '1.1 varnish',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-served-by': 'cache-itm7421-ITM',
+24 silly get     'x-cache': 'MISS',
+24 silly get     'x-cache-hits': '0',
+24 silly get     'x-timer': 'S1450261652.182056,VS0,VE719',
+24 silly get     vary: 'Accept' } ]
+25 verbose get saving bamzc to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\bamzc\.cache.json
+26 silly addNameRange number 2 { name: 'bamzc', range: '*', hasData: true }
+27 silly addNameRange versions [ 'bamzc',
+27 silly addNameRange   [ '1.6.23',
+27 silly addNameRange     '2.6.23',
+27 silly addNameRange     '2.6.24',
+27 silly addNameRange     '2.6.25',
+27 silly addNameRange     '0.3.3',
+27 silly addNameRange     '0.3.4',
+27 silly addNameRange     '0.3.5',
+27 silly addNameRange     '0.3.6',
+27 silly addNameRange     '0.3.7',
+27 silly addNameRange     '0.3.8' ] ]
+28 silly addNamed bamzc@0.3.8
+29 verbose addNamed "0.3.8" is a plain semver version for bamzc
+30 silly cache afterAdd bamzc@0.3.8
+31 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\bamzc\0.3.8\package\package.json not in flight; writing
+32 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\bamzc\0.3.8\package\package.json written
+33 silly install resolved [ { name: 'bamzc',
+33 silly install resolved     version: '0.3.8',
+33 silly install resolved     description: '\'browserify,sass,css,js,image to solving modular development\'',
+33 silly install resolved     main: 'index.js',
+33 silly install resolved     directories: { test: 'test' },
+33 silly install resolved     bin: { bamzc: './bin/cmd.js' },
+33 silly install resolved     dependencies:
+33 silly install resolved      { browserify: '^11.2.0',
+33 silly install resolved        colors: '^1.1.2',
+33 silly install resolved        'iconv-lite': '^0.4.13',
+33 silly install resolved        'uglify-js': '^2.4.24',
+33 silly install resolved        'clean-css': '^3.4.6',
+33 silly install resolved        watch: '^0.16.0',
+33 silly install resolved        imagemin: '^3.2.2',
+33 silly install resolved        'cross-spawn': '^2.0.0' },
+33 silly install resolved     devDependencies: {},
+33 silly install resolved     scripts: { test: 'node ./test/test.js' },
+33 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/Bamzc/bamzc.git' },
+33 silly install resolved     keywords:
+33 silly install resolved      [ 'browserify',
+33 silly install resolved        'uglifyjs',
+33 silly install resolved        'sass',
+33 silly install resolved        'scss',
+33 silly install resolved        'css',
+33 silly install resolved        'js',
+33 silly install resolved        'watch',
+33 silly install resolved        'iconv-lite' ],
+33 silly install resolved     author: { name: 'bamzc' },
+33 silly install resolved     license: 'MIT',
+33 silly install resolved     bugs: { url: 'https://github.com/Bamzc/bamzc/issues' },
+33 silly install resolved     homepage: 'https://github.com/Bamzc/bamzc#readme',
+33 silly install resolved     readme: '# browserify-plus,sass-plus\n\n## Installation\t\n\n\tnpm install bamzc\n\n## Explain\n\t\n\t1) 查找指定目录下得所有使用commonJS规范编写的js文件(*/rjs/*.js || */*_rjs.js)\n\t\n\t进行browserify编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)\n\n\t在*/bamzc/执行:npm test，*/bamzc/js/文件内查看编译后的代码\n\n\t2) 查找指定目录下得所有使用sass规范编写的scss文件(*/scss/*.scss)\n\n\t进行sass编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)\n\n\t在*/bamzc/执行:npm test，*/bamzc/css/文件内查看编译后的代码\n\n\n## Options\n \t\t\n\t* `inputPath` -- 需要进行编译的文件夹名称\n\t/************browserify*************/\n\t* `output.banner` -- 输出文件banner ==> <%time%>:更新时间\n\t* `output.path` -- 输出文件的路径\n\t* `output.type` -- 输出方式\n\t\t\n\t\t`normal`: 单独文件输出  `deep`: 包含路径输出\n\t\t\n\t* `output.compress` -- boolean 是否压缩\n\t/****************sass****************/\n\t* `outputScss.banner` -- 输出文件banner ==> <%time%>:更新时间\n\t* `outputScss.path` -- 输出文件的路径\n\t* `outputScss.type` -- 输出方式\n\t\t\n\t\t`normal`: 单独文件输出  `deep`: 包含路径输出\n\t\t\n\t* `outputScss.compress` -- boolean 是否压缩\n\t* `libraryPath` -- 库文件路径，被引用时可以使用<%bsp:file_name%>方式引入\n\t* `watch` -- 是否同步更新，`interval`为轮询时常\n\n## Example\n\t\n\t方法调用：\n~~~ javascript\n\t\n\t//调用方法 from: ./test/test.js\n    var browserifyPlus = require(\'browserify-plus\'); \n    var config = {\n        //需要编译的文件夹\n        inputPath: \'./test/src/\',\n        output: {\n        \t//输出文件banner\n        \tbanner:\'/*build at <%time%>*/\\n\',\n            //输出文件路径\n            path: \'./js/\',\n            //输出方式: normal、deep\n            type: \'normal\',\n            //是否压缩\n            compress: true\n        },\n\t    outputScss: {\n\t        //输出banner\n\t        banner:\'/*build at <%time%>*/\\n\',\n\t        //输出文件路径\n\t        path: \'./css/\',\n\t        //输出方式: normal、deep\n\t        type: \'normal\',\n\t        //是否压缩\n\t        compress: true\n\t    },\n        //引用的库文件路径\n        libraryPath: \'./core/\',\n        watch: {\n            //watch轮询的时常，默认值1200\n            interval: 1000\n        }\n    };\n    browserifyPlus(config);\n    \n~~~\n\n\t业务代码：\n~~~ javascript\n\t\n\t//引用模块 from: ./test/src/rjs/test.js\n\t//clear为库文件路径内的clear.js文件\n\t//库内文件不支持短命名形式引用\n\tvar clear = require(\'<%bsp:clear%>\');\n\tconsole.log(clear([1,null,\'\']));\n\t\n~~~\n\n## License\n\n\t(The MIT License) Copyright (c) 2012 - 2015 Bamzc\n\t\n\t\n\n\n',
+33 silly install resolved     readmeFilename: 'README.md',
+33 silly install resolved     gitHead: 'd9964e5131779f9c243789048265d249bdab938d',
+33 silly install resolved     _id: 'bamzc@0.3.8',
+33 silly install resolved     _shasum: '747a962ba98dac842f74d84092af9a6ec0cffcf7',
+33 silly install resolved     _from: 'bamzc@*' } ]
+34 info install bamzc@0.3.8 into C:\Users\Administrator\AppData\Roaming\npm
+35 info installOne bamzc@0.3.8
+36 verbose installOne of bamzc to C:\Users\Administrator\AppData\Roaming\npm not in flight; installing
+37 verbose lock using C:\Users\Administrator\AppData\Roaming\npm-cache\_locks\bamzc-ca031025d2abe71b.lock for C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+38 silly install write writing bamzc 0.3.8 to C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+39 verbose unbuild node_modules\bamzc
+40 info preuninstall bamzc@0.3.7
+41 info uninstall bamzc@0.3.7
+42 verbose unbuild rmStuff bamzc@0.3.7 from C:\Users\Administrator\AppData\Roaming\npm\node_modules
+43 silly gentlyRm C:\Users\Administrator\AppData\Roaming\npm\bamzc.cmd is being gently removed
+44 silly gentlyRm verifying C:\Users\Administrator\AppData\Roaming\npm is an npm working directory
+45 silly gentlyRm containing path C:\Users\Administrator\AppData\Roaming\npm is under npm's control, in C:\Users\Administrator\AppData\Roaming\npm
+46 silly gentlyRm deletion target C:\Users\Administrator\AppData\Roaming\npm\bamzc.cmd is under C:\Users\Administrator\AppData\Roaming\npm
+47 verbose gentlyRm vacuuming from C:\Users\Administrator\AppData\Roaming\npm\bamzc.cmd up to C:\Users\Administrator\AppData\Roaming\npm
+48 silly vacuum-fs removing C:\Users\Administrator\AppData\Roaming\npm\bamzc.cmd
+49 silly vacuum-fs finished vacuuming up to C:\Users\Administrator\AppData\Roaming\npm
+50 silly gentlyRm C:\Users\Administrator\AppData\Roaming\npm\bamzc is being gently removed
+51 silly gentlyRm verifying C:\Users\Administrator\AppData\Roaming\npm is an npm working directory
+52 silly gentlyRm containing path C:\Users\Administrator\AppData\Roaming\npm is under npm's control, in C:\Users\Administrator\AppData\Roaming\npm
+53 silly gentlyRm deletion target C:\Users\Administrator\AppData\Roaming\npm\bamzc is under C:\Users\Administrator\AppData\Roaming\npm
+54 verbose gentlyRm vacuuming from C:\Users\Administrator\AppData\Roaming\npm\bamzc up to C:\Users\Administrator\AppData\Roaming\npm
+55 silly vacuum-fs removing C:\Users\Administrator\AppData\Roaming\npm\bamzc
+56 silly vacuum-fs finished vacuuming up to C:\Users\Administrator\AppData\Roaming\npm
+57 info postuninstall bamzc@0.3.7
+58 silly gentlyRm C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc is being purged from base C:\Users\Administrator\AppData\Roaming\npm
+59 verbose gentlyRm don't care about contents; nuking C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+60 silly vacuum-fs purging C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+61 silly vacuum-fs quitting because other entries in C:\Users\Administrator\AppData\Roaming\npm\node_modules
+62 verbose tar unpack C:\Users\Administrator\AppData\Roaming\npm-cache\bamzc\0.3.8\package.tgz
+63 verbose tar unpacking to C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+64 silly gentlyRm C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc is being purged
+65 verbose gentlyRm don't care about contents; nuking C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+66 silly vacuum-fs Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc'
+66 silly vacuum-fs     at Error (native)
+67 verbose unlock done using C:\Users\Administrator\AppData\Roaming\npm-cache\_locks\bamzc-ca031025d2abe71b.lock for C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+68 verbose stack Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc'
+68 verbose stack     at Error (native)
+69 verbose cwd e:\bamzc
+70 error Windows_NT 6.1.7601
+71 error argv "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "bamzc" "-g"
+72 error node v0.12.4
+73 error npm  v2.10.1
+74 error path C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+75 error code EPERM
+76 error errno -4048
+77 error Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc'
+77 error     at Error (native)
+77 error  { [Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc']
+77 error   errno: -4048,
+77 error   code: 'EPERM',
+77 error   path: 'C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\bamzc' }
+78 error Please try running this command again as root/Administrator.
+79 verbose exit [ -4048, true ]
+80 verbose unbuild node_modules\bamzc
+81 silly gentlyRm C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc is being purged from base C:\Users\Administrator\AppData\Roaming\npm
+82 verbose gentlyRm don't care about contents; nuking C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc
+83 silly vacuum-fs Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc'
+83 silly vacuum-fs     at Error (native)
+84 error error rolling back Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc'
+84 error error rolling back     at Error (native)
+84 error error rolling back  { [Error: EPERM, lstat 'C:\Users\Administrator\AppData\Roaming\npm\node_modules\bamzc']
+84 error error rolling back   errno: -4048,
+84 error error rolling back   code: 'EPERM',
+84 error error rolling back   path: 'C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\bamzc' }

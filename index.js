@@ -3,50 +3,64 @@
  */
 
 'use strict';
-var bamzc = require('./lib/main.js');
+var util = require("./lib/util");
+var trace = require("./lib/trace");
+var distrbute = require("./lib/distrbute");
+var watchTask = require("./lib/taskwatch");
+var runner = require("./lib/taskrunner");
 
-function extendDeep(parent) {
-    var i,
-        toStr = Object.prototype.toString,
-        astr = "[object Array]",
-        child = arguments[1] || {};
-    for (i in parent) {
-        if (parent.hasOwnProperty(i)) {
-            if (typeof parent[i] === "object") {
-                child[i] = (toStr.call(parent[i]) === astr) ? [] : {};
-                extendDeep(parent[i],child[i]);
-            } else {
-                child[i] = parent[i];
-            }
+module.exports = function (opts) {
+	function walk(map,type){
+		var arr = [];
+	    for(var i in map){
+	        if(!i){
+	            trace.error('file is no exist');
+	            return;
+	        }
+	        if(map.hasOwnProperty(i)){
+	        	if(type == "rjs"){
+	            	runner(map[i],opts).rjsmin();
+	        	}else if(type == "js"){
+	            	runner(map[i],opts).jsmin();
+	        	}else if(type == "css"){
+	            	runner(map[i],opts).cssmin();
+	        	}else if(type == "sass"){
+	        		runner(map[i],opts).sassmin();
+	        	}
+	        	arr.push(map[i]);
+	        }
+	    }
+	    if(type == "image"){
+	   		if (arr.length <=0) return;
+	   		trace.load('image compressed, waiting...');
+        	runner(arr,opts).imagemin();
+	    };
+	}
+    var fileMap = distrbute(opts),
+        rjsMap = fileMap.rjs,
+        jsMap = fileMap.js,
+        cssMap = fileMap.css,
+        imageMap = fileMap.imageMap,
+        sassMap = fileMap.sass;
+        if(rjsMap){
+        	walk(rjsMap,'rjs');
+            trace.ok('rjs file processing tasks completed\n');
         }
-    }
-    return child;
-};
-
-module.exports = function () {
-
-    var config = extendDeep(arguments[0],{
-        //需要编译的文件夹
-        inputPath: '',
-        output: {
-            //输出文件路径
-            path: '',
-            //输出方式: normal、deep
-            type: '',
-            //是否压缩
-            compress: true
-        },
-        outputScss: {
-            //输出文件路径
-            path: '',
-            //输出方式: normal、deep
-            type: '',
-            //是否压缩
-            compress: true
-        },
-        //引用的库文件路径
-        libraryPath: './core/'
-    });
-
-    bamzc(config);
+        if(jsMap){
+        	walk(jsMap,'js');
+            trace.ok('js file processing tasks completed\n');
+        }
+        if(cssMap){
+        	walk(cssMap,'css');
+            trace.ok('CSS file processing tasks completed\n');
+        }
+        if(imageMap){
+        	walk(imageMap,'image');
+            trace.ok('image file processing tasks completed\n');
+        }
+        if(sassMap){
+        	walk(sassMap,'sass')
+            trace.ok('sass file processing tasks completed\n');
+        }
+        watchTask(opts);
 };

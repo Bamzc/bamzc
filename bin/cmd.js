@@ -3,89 +3,69 @@
 'use strict';
 var fs = require('fs');
 var PATH = require('path');
-var browserifyPlus = require('../index');
+var bamzc = require('../index');
 var trace = require('../lib/trace');
-
-function forEach(handle) {
-    var arr = this, len = arr.length;
-    for (var i = 0; i < len; i++) {
-        if (handle(arr[i], i) === false) break;
-    }
-}
-
-function getFilePath(filePath, file, that) {
-    forEach.call(fs.readdirSync(filePath), function (fileName) {
+var util = require("../lib/util");
+var help = require("../lib/help");
+/**
+ * 获取bamzcfile.js 文件路径
+ * return object : {path : .../bamzcfile.js}
+ */
+function getFilePath(filePath, file, that){
+    /**
+     *1.fs.readdirSync()
+     *  方法将返回一个包含“指定目录下所有文件名称”的数组对象
+     *2.fs.lstatSync()
+     *  方法返回一个stat数组对象
+     *3.isDirectory()
+     *  是否是文件夹，true为文件夹
+     ***/
+    util.forEach.call(fs.readdirSync(filePath), function(fileName,i){
         var baseDir = filePath + fileName;
         try {
             var lstat = fs.lstatSync(baseDir);
         } catch (e) {
-            trace.error('file parsing error, replace the execution path.');
-            process.exit(1);
-            return false;
+            trace.error('Skip a file parsing error.');
+            return;
         }
-        if (lstat.isDirectory()) {
-            if (PATH.basename(baseDir).replace(/\..+$/, '') == '')return;
-            getFilePath(baseDir + PATH.sep, file, that);
-        } else if (lstat.isFile() && fileName === file) {
+        if (lstat.isDirectory()){
+            if(PATH.basename(baseDir).replace(/\..+$/, '') == '') return;
+            getFilePath(baseDir + PATH.sep, file ,that)
+        } else if (lstat.isFile() && fileName === file) {//fileName --> bamzcfile.js
             that.path = baseDir;
             return false;
         }
     });
     return that;
 }
-
-function relativePath(basePath, outPath) {
-    var symbol = PATH.sep, dirArr = outPath.split(symbol), $p;
-    switch (dirArr[0]) {
-        case '.':
-            $p = PATH.join(basePath, outPath);
-            break;
-        case '' :
-            $p = outPath;
-            break;
-        case '..':
-            var baseArr = basePath.split(symbol);
-            forEach.call(dirArr, function (dir, i) {
-                if (dir === '..') {
-                    baseArr.pop();
-                } else {
-                    $p = PATH.join(baseArr.join(symbol), dirArr.slice(i).join(symbol));
-                    return false;
-                }
-            });
-            break;
-        default :
-            $p = PATH.join(basePath, outPath);
+function getOtherInfo(){
+    if(/(h|help)/i.test(args)){
+        help.content();
     }
-    return $p;
+    process.exit(0);
 }
-
 var args = process.argv[2] ? process.argv[2].replace(/^\-/, '') : '';
 
-if (/(v|version)/i.test(args)) {
+//获取包程序版本号
+if(/(v|version)/i.test(args)){
     return trace.log(require('../package.json').version);
 }
-
-if (args && !/.+\.bsp\.js$/.test(args)) {
-    return trace.warn('configuration file named *.bsp.js');
-}
-
-var fileMap = args ? {path: relativePath(process.cwd(), args)} : getFilePath(process.cwd() + PATH.sep, 'config.bsp.js', {});
-
+/**
+ * fileMap -->> object: {path:.../config.bsp.js}
+ * PATH.sep -->> '/'
+ * PATH.dirname -->> path.dirname('/foo/bar/a.js') -->> return /foo/bar
+ * process.cwd() -->> 当前目录路径
+ */
+var fileMap = args ? getOtherInfo() : getFilePath(process.cwd() + PATH.sep, 'bamzcfile.js',{}); 
 
 if (fileMap && fileMap.path) {
     try {
         var config = require(fileMap.path), dirName = PATH.dirname(fileMap.path);
     } catch (e) {
-        trace.error('configuration file parsing error');
+        trace.error('bamzcfile file parsing error');
         process.exit(1);
     }
-
-    config.inputPath = relativePath(dirName, config.inputPath);
-    config.output.path = relativePath(dirName, config.output.path);
-    config.libraryPath = relativePath(dirName, config.libraryPath);
-
-    browserifyPlus(config);
-} else {
-    return trace.error('no configuration file, please edit it');
+    bamzc(util.analyticPath(config,dirName));
+}else{
+    return trace.error('no bamzcfile file , please edit it')
 }

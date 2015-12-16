@@ -1,21 +1,23 @@
 {
   "name": "bamzc",
-  "version": "2.6.23",
-  "description": "'browserift plus and sass-plus to solving modular development'",
+  "version": "0.3.8",
+  "description": "'browserify,sass,css,js,image to solving modular development'",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "bin": {
-    "bamzc":"./bin/cmd.js"
+    "bamzc": "./bin/cmd.js"
   },
   "dependencies": {
     "browserify": "^11.2.0",
     "colors": "^1.1.2",
     "iconv-lite": "^0.4.13",
     "uglify-js": "^2.4.24",
+    "clean-css": "^3.4.6",
     "watch": "^0.16.0",
-    "cross-spawn" : "^2.0.0"
+    "imagemin": "^3.2.2",
+    "cross-spawn": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -31,14 +33,22 @@
     "sass",
     "scss",
     "css",
-    "plus",
+    "js",
     "watch",
     "iconv-lite"
   ],
-  "author": "edifier",
+  "author": {
+    "name": "bamzc"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bamzc/bamzc/issues"
   },
-  "homepage": "https://github.com/Bamzc/bamzc#readme"
+  "homepage": "https://github.com/Bamzc/bamzc#readme",
+  "readme": "# browserify-plus,sass-plus\n\n## Installation\t\n\n\tnpm install bamzc\n\n## Explain\n\t\n\t1) 查找指定目录下得所有使用commonJS规范编写的js文件(*/rjs/*.js || */*_rjs.js)\n\t\n\t进行browserify编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)\n\n\t在*/bamzc/执行:npm test，*/bamzc/js/文件内查看编译后的代码\n\n\t2) 查找指定目录下得所有使用sass规范编写的scss文件(*/scss/*.scss)\n\n\t进行sass编译(支持短命名方式引用模块)，并同步文件修改(删除文件、增加文件、修改文件)\n\n\t在*/bamzc/执行:npm test，*/bamzc/css/文件内查看编译后的代码\n\n\n## Options\n \t\t\n\t* `inputPath` -- 需要进行编译的文件夹名称\n\t/************browserify*************/\n\t* `output.banner` -- 输出文件banner ==> <%time%>:更新时间\n\t* `output.path` -- 输出文件的路径\n\t* `output.type` -- 输出方式\n\t\t\n\t\t`normal`: 单独文件输出  `deep`: 包含路径输出\n\t\t\n\t* `output.compress` -- boolean 是否压缩\n\t/****************sass****************/\n\t* `outputScss.banner` -- 输出文件banner ==> <%time%>:更新时间\n\t* `outputScss.path` -- 输出文件的路径\n\t* `outputScss.type` -- 输出方式\n\t\t\n\t\t`normal`: 单独文件输出  `deep`: 包含路径输出\n\t\t\n\t* `outputScss.compress` -- boolean 是否压缩\n\t* `libraryPath` -- 库文件路径，被引用时可以使用<%bsp:file_name%>方式引入\n\t* `watch` -- 是否同步更新，`interval`为轮询时常\n\n## Example\n\t\n\t方法调用：\n~~~ javascript\n\t\n\t//调用方法 from: ./test/test.js\n    var browserifyPlus = require('browserify-plus'); \n    var config = {\n        //需要编译的文件夹\n        inputPath: './test/src/',\n        output: {\n        \t//输出文件banner\n        \tbanner:'/*build at <%time%>*/\\n',\n            //输出文件路径\n            path: './js/',\n            //输出方式: normal、deep\n            type: 'normal',\n            //是否压缩\n            compress: true\n        },\n\t    outputScss: {\n\t        //输出banner\n\t        banner:'/*build at <%time%>*/\\n',\n\t        //输出文件路径\n\t        path: './css/',\n\t        //输出方式: normal、deep\n\t        type: 'normal',\n\t        //是否压缩\n\t        compress: true\n\t    },\n        //引用的库文件路径\n        libraryPath: './core/',\n        watch: {\n            //watch轮询的时常，默认值1200\n            interval: 1000\n        }\n    };\n    browserifyPlus(config);\n    \n~~~\n\n\t业务代码：\n~~~ javascript\n\t\n\t//引用模块 from: ./test/src/rjs/test.js\n\t//clear为库文件路径内的clear.js文件\n\t//库内文件不支持短命名形式引用\n\tvar clear = require('<%bsp:clear%>');\n\tconsole.log(clear([1,null,'']));\n\t\n~~~\n\n## License\n\n\t(The MIT License) Copyright (c) 2012 - 2015 Bamzc\n\t\n\t\n\n\n",
+  "readmeFilename": "README.md",
+  "gitHead": "d9964e5131779f9c243789048265d249bdab938d",
+  "_id": "bamzc@0.3.3",
+  "_shasum": "0483e20388098cb3b72a328bc64840184b9d9d53",
+  "_from": "bamzc@*"
 }
