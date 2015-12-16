@@ -1,6 +1,6 @@
 {
   "name": "bamzc",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "'browserify,sass,css,js,image to solving modular development'",
   "main": "index.js",
   "directories": {

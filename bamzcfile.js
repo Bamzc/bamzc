@@ -40,13 +40,13 @@ module.exports = {
             compress: true
         }
     },
-    // image: {
-    //     options: {
-    //         //输出文件路径
-    //         dest: 'i/'
-    //     },
-    //     patterns: ['.png', '.jpg', '.gif']
-    // },
+    image: {
+        options: {
+            //输出文件路径
+            dest: 'i/'
+        },
+        patterns: ['.png', '.jpg', '.gif']
+    },
     sass: {
         options:{
             dest : 'css/',
