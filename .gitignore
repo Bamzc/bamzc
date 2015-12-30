@@ -1,5 +1,14 @@
-#browserify-plus
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
 
 node_modules
-js
-config.bsp.js
+bower_componets
+
+*.sublime*
+
+psd
+thumb
+sketch
