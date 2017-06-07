@@ -112,5 +112,5 @@
 
 ## License
 
-	(The MIT License) Copyright (c) 2014 - 2015 bamzc
+	(The MIT License) Copyright (c) 2014 - 2017 bamzc
 	
